@@ -58,7 +58,7 @@ class FirefoxBinary(object):
     def add_command_line_options(self, *args):
         self.command_line = args
 
-    def launch_browser(self, profile, timeout=30):
+    def launch_browser(self, profile, timeout=90):
         """Launches the browser for the given profile name.
         It is assumed the profile already exists.
         """
@@ -89,7 +89,7 @@ class FirefoxBinary(object):
             command, stdout=self._log_file, stderr=STDOUT,
             env=self._firefox_env)
 
-    def _wait_until_connectable(self, timeout=30):
+    def _wait_until_connectable(self, timeout=90):
         """Blocks until the extension is connectable in the firefox."""
         count = 0
         while not utils.is_connectable(self.profile.port):
